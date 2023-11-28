@@ -66,7 +66,7 @@ def initialize_order():
     "sell": "USD",
     "buy": "BTC",
     "amount": {
-        "amount": "10.0",
+        "amount": "1.0",
         "currency": "USD"
     }
     })
@@ -88,7 +88,7 @@ def execute_order(quote_id):
   response = requests.request("PATCH", url, headers=headers, data=payload)
   print(response.text)
 
-tweet, tweet_date = get_tweets(name = 'JoeBiden')
+tweet, tweet_date = get_tweets(name = 'Any twitter account you want')
 print(tweet)
 try:
     # if today == tweet_date:
@@ -97,7 +97,7 @@ try:
         post_response = initialize_order()
         quote_id = post_response['id']
         execute_response = execute_order(quote_id)
-        utilities.send_email( "Potus Tweeted Today , 5$ BTC bought",
+        utilities.send_email( "Any update email you want",
 "{}".format(tweet.encode('ascii', 'ignore').decode('ascii')))
 
 except Exception as  e:
